@@ -2,7 +2,10 @@ body {
   direction: rtl;
   background-color: rgba(24, 24, 24, 0.95);
 }
-
+#pdf {
+  max-width: 1200px;
+  margin: 0 auto;
+}
 .lang {
   border: none;
   background: #ed5565;
@@ -108,8 +111,12 @@ p {
 .flex,
 .diet span {
   display: flex;
+
   width: 100%;
   color: rgb(202, 202, 202);
+}
+.flex {
+  justify-content: center;
 }
 
 .results,
