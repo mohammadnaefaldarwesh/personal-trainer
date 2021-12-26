@@ -1,0 +1,195 @@
+body {
+  direction: rtl;
+  background-color: rgba(24, 24, 24, 0.95);
+}
+
+.lang {
+  border: none;
+  background: #ed5565;
+  box-shadow: 0 0 5px #ed5565;
+  padding: 3px 10px;
+  font-weight: bolder;
+  text-align: center;
+  margin-right: 10px;
+  cursor: pointer;
+}
+h1 {
+  color: #ed5565;
+  text-align: center;
+}
+h2 {
+  color: #ff0000;
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto;
+  background-image: url(./me.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 220px;
+}
+
+form {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+span {
+  color: rgb(236, 236, 236);
+}
+
+span[class^='requier-'] {
+  position: absolute;
+  box-shadow: 0 0 2px red;
+  margin-right: -50px;
+  margin-left: -55px;
+  margin-top: -20px;
+  color: red;
+  padding: 1px 10px;
+  background: #ffe6e6;
+  font-size: 14px;
+  border-radius: 5px;
+}
+
+#fill_in {
+  margin-left: 0px;
+  margin-right: 0px;
+}
+.input-line {
+  padding: 5px 0;
+  width: 40%;
+}
+
+label {
+  display: block;
+  color: #f3f3f3;
+}
+.flex-input {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.input {
+  border: none;
+  width: 70%;
+  box-shadow: 0 0 5px #ed5565;
+  margin-right: 10px;
+  padding: 0 3px;
+  border-radius: 5px;
+  background: rgb(246, 246, 246);
+}
+
+select[class='input'] {
+  width: 72%;
+}
+
+.btn {
+  display: block;
+  border: none;
+  background: #ed5565;
+  box-shadow: 0 0 5px #ed5565;
+  padding: 3px 10px;
+  font-weight: bolder;
+  text-align: center;
+  margin: 0 auto;
+}
+
+.btn:hover {
+  box-shadow: 0 0 15px #ed5565;
+}
+
+p {
+  text-align: center;
+  color: #f3f3f3;
+}
+
+.diet {
+  padding-right: 40px;
+}
+.flex,
+.diet span {
+  display: flex;
+  width: 100%;
+  color: rgb(202, 202, 202);
+}
+
+.results,
+.diet {
+  width: 45%;
+}
+
+h3,
+.diet li {
+  color: #ed5565;
+}
+.total li {
+  color: rgb(202, 202, 202);
+}
+
+.downlaod {
+  display: none;
+}
+
+@media only screen and (max-width: 690px) {
+  span[class^='requier-'] {
+    margin-right: 20px;
+    font-size: 14px;
+    border-radius: 5px;
+    margin-left: 0px;
+    margin-top: 0px;
+  }
+  h2 {
+    background-image: url(./me2.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    height: 220px;
+  }
+  form {
+    max-width: 250px;
+  }
+  .flex-input {
+    display: block;
+  }
+  .input-line {
+    width: 100%;
+  }
+  .input {
+    width: 200px;
+  }
+
+  select[class='input'] {
+    width: 210px;
+  }
+
+  .flex {
+    display: block;
+    width: 100%;
+    margin: 0 auto;
+    /* text-align: center; */
+  }
+  .diet span {
+    display: inline;
+  }
+
+  .results,
+  .diet {
+    width: 100%;
+  }
+  h3 {
+    text-align: center;
+  }
+  ul,
+  ol {
+    display: table;
+    margin: 10px auto;
+  }
+  .cardio {
+    text-align: center;
+  }
+  h1 {
+    font-size: 18px;
+  }
+  .diet {
+    padding-right: 0px;
+  }
+}

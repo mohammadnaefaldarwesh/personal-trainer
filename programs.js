@@ -1,0 +1,77 @@
+const programs = {
+  legs: {
+    front: ['Leg extensions '],
+    ham: [
+      'Laying leg curl ',
+      'Toes-Elevated Dumbbell RDL ',
+      'Sitting leg curl ',
+      'Standing leg curl ',
+    ],
+    qouad: ['leg press ', 'lunges ', 'Barbell squats ', 'Goblet Squat '],
+    calf: ['Seated Dumbbell Calf Raise ', 'Seated Calf Raise (Leg Press Machine) '],
+  },
+  chest: {
+    up: [
+      'Incline dumbbell press ',
+      'dumbbell press ',
+      'Incline bench press ',
+      'Incline machine press ',
+    ],
+    mid: ['Barbell flat bench press ', 'flat dumbbell press ', 'flat machine press '],
+    iso: [
+      'Pec deck ',
+      'Decline dumbbell fly ',
+      'Cable crossover ',
+      'Incline dumbbell fly ',
+      'flat dumbbell fly ',
+    ],
+  },
+  back: {
+    up: ['Lat pulldown ', 'Pull-Up ', 'Seated Cable Row (for Upper Back) '],
+    mid: [
+      'Bent over barbell row ',
+      'Single-Arm Dumbbell Row ',
+      'Underhand cable row ',
+      'V-bar pulldown ',
+      'Chest Supported Row ',
+      'Seated Cable Row (for Lats) ',
+      'Landmine Row ',
+    ],
+    low: ['deadlift ', 'Back Extensions ', 'romanian chair '],
+  },
+  shoulder: {
+    front: [
+      'Dumbbell shoulder press ',
+      'Dumbbell front raise ',
+      'Seated Arnold press ',
+      'Single-Arm Cable Front Raise ',
+    ],
+    side: ['Dumbbell side lateral raises ', 'Upright Row ', 'Machine Shoulder Press '],
+    back: ['Cable Face Pulls ', 'Bentover Reverse Flye '],
+    neck: ['Dumbbell shrug ', 'close grip Upright Row '],
+  },
+  arms: {
+    biceps: [
+      'Barbell biceps curl ',
+      'Dumbbell contraction curl ',
+      'Dumbbell hammer curl ',
+      'EZ-Bar Preacher Curl ',
+      'Incline Dumbbell Curl ',
+      'Facing-Away Cable Curl ',
+      'Cable Curl ',
+      'Cable Rope Supinating Curl ',
+      'Cable Hammer Curl ',
+      'EZ-Bar Reverse Curl ',
+    ],
+    triceps: [
+      'Rope triceps pushdown ',
+      'Skull Crusher ',
+      'Close-Grip Barbell Bench Press ',
+      'Parallel Bar Dip ',
+      'Triceps Pushdown ',
+      'Decline Bench Cable Extension ',
+      'JM Press ',
+      'Overhead Triceps Extension ',
+    ],
+  },
+};

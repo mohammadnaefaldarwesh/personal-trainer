@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="ar">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <!-- <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" /> -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="./pngaaa.com-5103885.ico" type="image/icon type" />
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.4/jspdf.min.js"></script>
+    <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+
+    <title>Planer</title>
+  </head>
+  <body>
+    <div>
+      <span class="lang" id="#" onclick="goToAr()">عربي</span
+      ><span onclick="goToEn()" class="lang" id="#">English</span>
+    </div>
+    <div id="pdf">
+      <h1 id="title">مرحبا بكم في برنامج المدرب الشخصي</h1>
+      <h2></h2>
+      <div class="flex">
+        <div id="diet" class="diet"></div>
+        <div id="results" class="results"></div>
+      </div>
+
+      <form class="flex-input" id="planerId" action="" onsubmit="return false">
+        <div class="input-line">
+          <label for="fname">الأسم :</label>
+          <input class="input" type="text" id="fname" name="fname" value="" />
+        </div>
+
+        <div class="input-line">
+          <label for="age">العمر :</label>
+          <input class="input" type="number" id="age" name="age" value="" />
+        </div>
+
+        <div class="input-line">
+          <label for="sex">الجنس :</label>
+          <select class="input" name="" id="sex">
+            <option value=""></option>
+            <option value="male">ذكر</option>
+            <option value="female">أنثى</option>
+          </select>
+        </div>
+
+        <div class="input-line">
+          <label for="height">الطول :</label>
+          <input class="input" type="number" id="height" name="height" value="" />
+          <span>سم</span>
+        </div>
+
+        <div class="input-line">
+          <label for="weight">الوزن :</label>
+          <input class="input" type="number" id="weight" name="weight" value="" />
+          <span>كغ</span>
+        </div>
+
+        <div class="input-line">
+          <label for="goal">الهدف من التمرين :</label>
+          <select class="input" name="" id="goal">
+            <option value=""></option>
+            <option value="losing">انقاص الوزن</option>
+            <option value="gain">زيادة الوزن(ليس مهم عضل او دهون)</option>
+            <option value="gain-musels">زيادة الكتلة العضلية</option>
+            <option value="keep">المحافظة على الصحة العامة</option>
+          </select>
+        </div>
+
+        <div class="input-line">
+          <label for="motobolic">سرعة الأيض :</label>
+          <select class="input" name="" id="motobolic">
+            <option value=""></option>
+            <option value="fast">سريعة</option>
+            <option value="slow">بطيئة</option>
+            <option value="medium">وسط</option>
+          </select>
+        </div>
+
+        <div class="input-line">
+          <label for="experance">مدة خبرتك في الرياضة :</label>
+          <select class="input" name="" id="experance">
+            <option value=""></option>
+            <option value="6m">اقل من 6 اشهر</option>
+            <option value="1y">من 6 اشهر الى سنة</option>
+            <option value="more1y">أكثر من سنة</option>
+          </select>
+        </div>
+
+        <div class="input-line">
+          <label for="meals">عدد الوجبات التي تفضل (من 2 الى 5) :</label>
+          <select class="input" name="" id="meals">
+            <option value=""></option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+          </select>
+        </div>
+
+        <div class="input-line">
+          <label for="days">كم يوم تفضل ان تتدرب :</label>
+          <!-- <input class="input" type="number" id="days" name="days" value="" /> -->
+          <select class="input" name="" id="days">
+            <option value=""></option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+          </select>
+        </div>
+
+        <div class="input-line">
+          <label for="time">مدة التمرين : </label>
+          <select class="input" name="" id="time">
+            <option value=""></option>
+            <option value="30">30 دقيقة</option>
+            <option value="45">45 دقيقة</option>
+            <option value="60">ساعة</option>
+            <option value="75">ساعة وربع</option>
+            <option value="90">ساعة ونصف</option>
+            <option value="105">ساعة و45 دقيقة</option>
+            <option value="120">ساعتين</option>
+          </select>
+        </div>
+
+        <div class="input-line">
+          <label for="anabolic">استخدام المنشطات :</label>
+          <select class="input" name="" id="anabolic">
+            <option value=""></option>
+            <option value="yes">نعم</option>
+            <option value="no">لا</option>
+          </select>
+        </div>
+        <br />
+        <div class="input-line">
+          <input class="btn" type="submit" onclick="renderResult()" value="تأكيد" />
+        </div>
+      </form>
+      <br />
+    </div>
+    <div class="input-line">
+      <input
+        id="generatePDF"
+        class="btn downlaod"
+        type="submit"
+        value="تحميل الخطة التدريبة ك pdf"
+      />
+    </div>
+    <footer>
+      <hr />
+      <p>2021 Copyright. All Rights Reserved</p>
+    </footer>
+  </body>
+  <script src="./programs.js"></script>
+  <script src="./actions.js"></script>
+  <script>
+    const pageURL = window.location.href;
+
+    const goToAr = () => {
+      console.log(pageURL);
+      console.log(pageURL.substr(-6, 6));
+      if (pageURL.substr(-7, 7) == 'en.html') {
+        let arPage = pageURL.replace('en.html', '');
+        console.log(arPage);
+
+        window.location.href = arPage;
+      }
+    };
+    const goToEn = () => {
+      console.log(pageURL);
+      console.log(pageURL.substr(-6, 6));
+      if (pageURL.substr(-7, 7) != 'en.html') {
+        let enPage = pageURL + 'en.html';
+        console.log(enPage);
+
+        window.location.href = enPage;
+      }
+    };
+
+    $('#generatePDF').click(function () {
+      const input = document.getElementById('pdf');
+      const eleHeight = input.offsetHeight;
+      const screenWidth = input.offsetWidth;
+      console.log(eleHeight, screenWidth);
+      html2canvas(input, {
+        allowTaint: true,
+        backgroundColor: '#181818',
+        // scale: 0.8,
+        width: screenWidth,
+        height: eleHeight,
+        scrollY: document.body.scrollHeight,
+      }).then((canvas) => {
+        const imgData = canvas.toDataURL('image/png');
+        const pdf = new jsPDF('p', 'pt', [screenWidth, eleHeight]);
+        pdf.addImage(imgData, 'PNG', 0, 0, screenWidth, eleHeight);
+        pdf.save('training-plan.pdf');
+      });
+    });
+
+    const user = {};
+    const renderResult = () => {
+      const form = document.getElementById('planerId');
+      user.firstName = form.elements['fname'];
+      // user.lastName = form.elements['lname'];
+      user.age = form.elements['age'];
+      user.sex = form.elements['sex'];
+      user.height = form.elements['height'];
+      user.weight = form.elements['weight'];
+      user.goal = form.elements['goal'];
+      user.motobolic = form.elements['motobolic'];
+      user.experance = form.elements['experance'];
+      user.meals = form.elements['meals'];
+      user.time = form.elements['time'];
+      user.days = form.elements['days'];
+      user.anabolic = form.elements['anabolic'];
+      for (const [key, value] of Object.entries(user)) {
+        let ele = document.getElementsByClassName('requier-' + key);
+        if (ele.length > 0) {
+          for (let span of ele) {
+            span.remove();
+          }
+        }
+        if (!value.value) {
+          if (ele.length == 0) {
+            value.insertAdjacentHTML(
+              'afterend',
+              `<span class="requier-${key}" >هذا الحقل مطلوب</span>`,
+            );
+          }
+        }
+        // Age validation
+        if (key == 'age') {
+          if (Number.isInteger(value.value)) {
+            value.insertAdjacentHTML(
+              'afterend',
+              `<span class="requier-${key}" >العمر يجب ان يكون رقما صحيحا</span>`,
+            );
+          }
+          if ((value.value < 12 && value.value > 4) || (value.value > 120 && value.value < 151)) {
+            value.insertAdjacentHTML(
+              'afterend',
+              `<span class="requier-${key}" >العمر يجب ان يكون بين 12 و 120 سنة</span>`,
+            );
+          }
+          if ((value.value < 5 || value.value > 150) && value.value) {
+            value.insertAdjacentHTML(
+              'afterend',
+              `<span class="requier-${key}" >بلا مزح ...</span>`,
+            );
+          }
+        }
+        // Height validation
+        if (key == 'height') {
+          if (Number.isInteger(value.value)) {
+            value.insertAdjacentHTML(
+              'afterend',
+              `<span class="requier-${key}" >الطول يجب ان يكون رقما صحيحا</span>`,
+            );
+          }
+          if (
+            (value.value < 100 && value.value >= 50) ||
+            (value.value > 220 && value.value <= 250)
+          ) {
+            value.insertAdjacentHTML(
+              'afterend',
+              `<span class="requier-${key}" >الطول يجب ان يكون بين 100 و 220 سم</span>`,
+            );
+          }
+          if ((value.value < 50 || value.value > 250) && value.value) {
+            value.insertAdjacentHTML(
+              'afterend',
+              `<span class="requier-${key}" >بلا مزح ...</span>`,
+            );
+          }
+        }
+        // Weight validation
+        if (key == 'weight') {
+          if (Number.isInteger(value.value)) {
+            value.insertAdjacentHTML(
+              'afterend',
+              `<span class="requier-${key}" >الوزن يجب ان يكون رقما صحيحا</span>`,
+            );
+          }
+          if (
+            (value.value < 30 && value.value >= 28) ||
+            (value.value > 350 && value.value <= 360)
+          ) {
+            value.insertAdjacentHTML(
+              'afterend',
+              `<span class="requier-${key}" >الوزن يجب ان يكون بين 30 و 350 كغ</span>`,
+            );
+          }
+          if ((value.value < 28 || value.value > 360) && value.value) {
+            value.insertAdjacentHTML(
+              'afterend',
+              `<span class="requier-${key}" >بلا مزح ...</span>`,
+            );
+          }
+        }
+      }
+      // remove the fill in msg
+      let fillInMsg = document.getElementById('fill_in');
+      if (fillInMsg) {
+        fillInMsg.remove();
+      }
+      let ele = document.querySelectorAll('[class^="requier-"]');
+
+      if (ele.length > 0) {
+        form.insertAdjacentHTML(
+          'afterend',
+          `<span id="fill_in" class="requier-" >اكمل الحقول المطلوبة</span>`,
+        );
+      } else {
+        // do what you want after all checking.......
+        console.log(calcMeals(user));
+        const diet = calcMeals(user);
+        const food = document.getElementById('diet');
+        document.getElementById(
+          'title',
+        ).innerHTML = `البرنامج التدريبي للسيد(ة) : ${user.firstName.value}`;
+        food.innerHTML += `<h3 >الحمية الغذائية :</h3>
+                              <ul class="total">
+                                <li>اجمالي السعرلات الحرارية في اليوم :  ${
+                                  diet.food.total_calories
+                                } سعرة</li>
+                                <li>اجمالي النشويات في اليوم :  ${diet.food.carb.toFixed(
+                                  2,
+                                )} غرام</li>
+                                <li>اجمالي الدهون في اليوم :  ${diet.food.fat.toFixed(2)} غرام</li>
+                                <li>اجمالي البروتين في اليوم :  ${diet.food.protin.toFixed(
+                                  2,
+                                )} غرام</li>
+                              </ul> `;
+
+        food.innerHTML += `<h3>الوجبات  :</h3>`;
+        const mealNum = [
+          'االوجبة الاولى ',
+          'الوجبة الثانية ',
+          'الوجبة الثالثة  ',
+          ' الوجبة الرابعة ',
+          ' الوجبة الخامسة ',
+        ];
+        Object.keys(diet.meals).forEach((meal, index) => {
+          food.innerHTML += `
+                              <ul>
+                                <li>${mealNum[index]} :
+                                  <span>بروتين : ${diet.meals[meal].protin}غ ,</span>
+                                  <span>نشويات : ${diet.meals[meal].carb}غ ,</span>
+                                  <span>دهون : ${diet.meals[meal].fat}غ </span>
+                                </li>
+                              </ul> `;
+        });
+
+        const exercises = ['back', 'chest', 'legs', 'shoulder', 'biceps', 'triceps'];
+        const days = [
+          'اليوم الاول',
+          'اليوم الثاني',
+          'اليوم الثالث',
+          'اليوم الرابع',
+          'اليوم الخامس',
+          'اليوم السادس',
+        ];
+        const results = program(user, programs);
+
+        // console.log(results);
+        const form = document.getElementById('planerId');
+        const result = document.getElementById('results');
+        form.style.display = 'none';
+
+        results.forEach((item, index) => {
+          let day = days[index];
+          let indexes = [];
+          let itemsLength = Object.keys(item).length;
+          Object.keys(item).forEach((i) => {
+            if (exercises.includes(i)) {
+              if (!indexes.includes(index)) {
+                indexes.push(index);
+              } else {
+                day = '';
+              }
+              result.innerHTML += `<div style="direction:ltr">
+                                         <h3>${i + '   ' + day}</h3>
+                                         <ol id="${i + index + item[i][item[i].length - 1]}"></ol>
+                                       </div>`;
+            }
+            if (exercises.includes(i)) {
+              item[i].forEach((exercise, num) => {
+                const list = document.getElementById(i + index + item[i][item[i].length - 1]);
+                list.innerHTML += `<li>${exercise + ' ' + item.sets}</li>`;
+                if (results[0]['cardio'] && num == item[i].length - 1) {
+                  if (
+                    itemsLength == 2 ||
+                    (itemsLength >= 3 && day == '') ||
+                    (itemsLength == 3 && Object.keys(results[0]).length == 3)
+                  ) {
+                    list.innerHTML += `<li>${
+                      results[0]['cardio'][0] + ' ' + 'minutes cardio'
+                    }</li>`;
+                  }
+                }
+              });
+            }
+          });
+          if (index == results.length - 1 && results[results.length - 1]['cardio']) {
+            result.innerHTML += `<div style="direction:ltr">
+                                           <h3>cardio ${days[5]}</h3>
+                                           <div class="cardio">${
+                                             results[results.length - 1]['cardio'][0]
+                                           } minutes cardio</din>
+                                         </div>`;
+          }
+        });
+        document.getElementById('generatePDF').style.display = 'block';
+        // console.log(user);
+      }
+    };
+  </script>
+</html>
